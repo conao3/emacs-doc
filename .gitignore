@@ -1,0 +1,7 @@
+/build
+/dist
+result
+.direnv
+.claude-dev
+.wrangler
+po/*.pot
