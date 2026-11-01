@@ -37,6 +37,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -I '^"POT-Creation-Date: ' -- po; then
+            git checkout -- po
+          fi
           git add EMACS_REVISION po/*.ja.po
           if ! git diff --cached --quiet; then
             git commit -m "Update translations for Emacs $(cut -c1-10 EMACS_REVISION)"

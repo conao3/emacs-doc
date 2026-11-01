@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Print a po4a configuration that maps every HTML node of a manual to one PO file.
 set -euo pipefail
+export LC_COLLATE=C
 
 manual=$1
 html=$2
