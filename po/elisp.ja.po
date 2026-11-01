@@ -54075,6 +54075,7 @@ msgstr ""
 "class=\"var\">newname</var> は <var class=\"var\">oldname</var> への新しい"
 "ハードリンクとなります。"
 
+# Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><div><hr><dl><dd><p>
 #: build/html/elisp/Changing-Files.html
 msgid ""
@@ -54085,7 +54086,7 @@ msgid ""
 "class=\"var\">oldname</var> is a directory, this function typically fails, "
 "although for the superuser on a few old-fashioned non-GNU platforms it can "
 "succeed and create a filesystem that is not tree-structured."
-msgstr ""
+msgstr "<var class=\"var\">newname</var> がシンボリックリンクの場合、置き換えられるのはそのディレクトリエントリであり、リンク先のディレクトリエントリではありません。<var class=\"var\">oldname</var> がシンボリックリンクの場合、この関数はリンクを辿る場合と辿らない場合があり、GNU プラットフォームではリンクを辿りません。<var class=\"var\">oldname</var> がディレクトリの場合、この関数は通常失敗しますが、一部の旧式な非 GNU プラットフォームのスーパーユーザーであれば成功し、ツリー構造を持たないファイルシステムを作成することがあります。"
 
 # Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><div><hr><dl><dd><p>
