@@ -11,9 +11,13 @@ version=$(cat "$html/VERSION")
 short=${revision:0:10}
 
 for manual in emacs elisp eintr; do
-  for page in "$dist/$manual"/*.html; do
+  for page in "$dist/$manual"/*.html "$dist/mono/$manual.html"; do
     name=$(basename "$page")
-    original="https://www.gnu.org/software/emacs/manual/html_node/$manual/$name"
+    if [ "$page" = "$dist/mono/$manual.html" ]; then
+      original="https://www.gnu.org/software/emacs/manual/html_mono/$name"
+    else
+      original="https://www.gnu.org/software/emacs/manual/html_node/$manual/$name"
+    fi
     notice="<div class=\"mt-notice\" lang=\"ja\" style=\"border:1px solid #c9c9c9;background:#fafaf5;padding:.5em .8em;margin:0 0 1em;font-size:.9em\">GNU Emacs $version (<a href=\"https://github.com/emacs-mirror/emacs/commit/$revision\">$short</a>) のマニュアルを PLaMo 翻訳で機械翻訳したものです。誤訳を含むことがあります。原文: <a href=\"$original\" lang=\"en\">$original</a> ・ <a href=\"/\">emacs-doc.conao3.com</a></div>"
     sed -i \
       -e 's|^<html>$|<html lang="ja">|' \
@@ -22,5 +26,6 @@ for manual in emacs elisp eintr; do
   done
 done
 cp "$html"/eintr/*.png "$dist/eintr/"
+cp "$html"/eintr/*.png "$dist/mono/"
 sed -e "s|@VERSION@|$version|g" -e "s|@REVISION@|$revision|g" -e "s|@SHORT_REVISION@|$short|g" \
   site/index.html >"$dist/index.html"

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Print a po4a configuration that maps every HTML node of a manual to one PO file.
+# Print a po4a configuration that maps every HTML node of a manual and its
+# one-file version to one PO file.
 set -euo pipefail
 export LC_COLLATE=C
 
@@ -15,3 +16,4 @@ EOF
 for file in "$html/$manual"/*.html; do
   echo "[type: xhtml] $file \$lang:$dist/$manual/$(basename "$file")"
 done
+echo "[type: xhtml] $html/mono/$manual.html \$lang:$dist/mono/$manual.html"

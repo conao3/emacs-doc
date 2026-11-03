@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Build the Emacs, Emacs Lisp, and Emacs Lisp Intro manuals as HTML, one file per node.
+# Build the Emacs, Emacs Lisp, and Emacs Lisp Intro manuals as HTML, one file per node
+# in <out>/<manual>/ and one file per manual in <out>/mono/<manual>.html.
 set -euo pipefail
 
 emacs=$1
@@ -14,15 +15,19 @@ sed "s/@version@/$version/" "$emacs/doc/emacs/emacsver.texi.in" >"$emacs/doc/ema
 
 build() {
   local manual=$1 texi=$2
-  rm -rf "${out:?}/$manual"
-  mkdir -p "$out/$manual"
+  rm -rf "${out:?}/$manual" "$out/mono/$manual.html"
+  mkdir -p "$out/$manual" "$out/mono"
   makeinfo --html --force --enable-encoding \
     -I "$emacs/doc/emacs" -I "$(dirname "$texi")" \
     -o "$out/$manual" "$texi"
+  makeinfo --html --no-split --force --enable-encoding \
+    -I "$emacs/doc/emacs" -I "$(dirname "$texi")" \
+    -o "$out/mono/$manual.html" "$texi"
 }
 
 build emacs "$emacs/doc/emacs/emacs.texi"
 build elisp "$emacs/doc/lispref/elisp.texi"
 build eintr "$emacs/doc/lispintro/emacs-lisp-intro.texi"
 cp "$emacs"/doc/lispintro/*.png "$out/eintr/"
+cp "$emacs"/doc/lispintro/*.png "$out/mono/"
 echo "$version" >"$out/VERSION"

@@ -12,15 +12,17 @@ This is a personal project and is not affiliated with the Free Software Foundati
 | `elisp/` | GNU Emacs Lisp Reference Manual | `doc/lispref/elisp.texi` |
 | `eintr/` | An Introduction to Programming in Emacs Lisp | `doc/lispintro/emacs-lisp-intro.texi` |
 
+Each manual is also available as one page in `mono/<manual>.html`.
+
 The manuals follow the master branch of [Emacs](https://github.com/emacs-mirror/emacs). `EMACS_REVISION` records the commit the translations were last merged with.
 
 ## How it works
 
 1. `make fetch-latest` checks out the `doc` directory of the Emacs master branch and writes its commit to `EMACS_REVISION`. `make fetch` checks out the commit already in `EMACS_REVISION`.
-2. `make html` builds each manual with `makeinfo --html`, one page per node.
-3. `make pot` extracts the text of every page with po4a (`xhtml`) into one catalog per manual and merges it into `po/<manual>.ja.po` with `msgmerge --previous`. A paragraph whose English changed becomes fuzzy; a new paragraph is untranslated.
+2. `make html` builds each manual with `makeinfo --html` twice: one page per node in `<manual>/`, and the whole manual in one page in `mono/<manual>.html`.
+3. `make pot` extracts the text of every page with po4a (`xhtml`) into one catalog per manual and merges it into `po/<manual>.ja.po` with `msgmerge --previous`. Both versions of a manual share the catalog; a paragraph whose links differ between them (`Node.html` and `#Node`) is a separate entry. A paragraph whose English changed becomes fuzzy; a new paragraph is untranslated.
 4. `make translate` fills the untranslated and fuzzy machine-translated entries with [po-plamo](https://github.com/conao3/rust-po-plamo). Code (`code`, `kbd`, `pre`, `samp`, `var`) is kept in English, and entries extracted from `pre`, `style`, and `script` are not translated. `LIMIT=<n>` stops after n msgids.
-5. `make site` writes the translated pages to `dist/` with `po4a --keep 0`, so a paragraph without a translation stays in English. Each page gets a notice that links to the original page on gnu.org.
+5. `make site` writes the translated pages to `dist/` with `po4a --keep 0`, so a paragraph without a translation stays in English. Each page gets a notice that links to the original page on gnu.org (`html_node` or `html_mono`).
 6. `make deploy` uploads `dist/` to the Cloudflare Worker `emacs-doc` (static assets) with wrangler.
 
 `make stats` prints the translated and untranslated counts of each catalog.
