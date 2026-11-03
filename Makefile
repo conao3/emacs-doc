@@ -34,8 +34,8 @@ pot: html
 # Fill po/*.ja.po with PLaMo Translate. Set LIMIT to stop after that many msgids.
 .PHONY: translate
 translate:
-	po-plamo --source en --format html --skip-context '$(SKIP_CONTEXT)' \
-	  $(if $(LIMIT),--limit $(LIMIT)) $(foreach manual,$(MANUALS),po/$(manual).ja.po)
+	po-plamo po-file translate-po-files --source-language en --format html --skip-context '$(SKIP_CONTEXT)' \
+	  $(if $(LIMIT),--limit $(LIMIT)) --po-files $(foreach manual,$(MANUALS),po/$(manual).ja.po)
 
 .PHONY: site
 site: html
