@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: conao 3\n"
-"POT-Creation-Date: 2026-11-01 12:20+0000\n"
+"POT-Creation-Date: 2026-11-03 00:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -112089,6 +112089,16 @@ msgstr ""
 "た場合には、機能しないことがあります。"
 
 # Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><p>
+#: build/html/emacs/Emergency-Escape.html
+msgid ""
+"Emergency escape is not available in graphical frames, or in text-mode "
+"frames where the terminal emulator supports the Kitty Keyboard Protocol and "
+"you have not disabled use of that protocol (see <a class=\"pxref\" "
+"href=\"Terminal-Init.html\">Terminal-specific Initialization</a>)."
+msgstr "グラフィカルフレーム、またはターミナルエミュレータがKitty Keyboard Protocolをサポートしており、かつ同プロトコルの使用を無効にしていないテキストモードフレームでは、緊急エスケープは利用できません（<a class=\"pxref\" href=\"Terminal-Init.html\">ターミナル固有の初期化</a>を参照）。"
+
+# Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><hr><p>
 #: build/html/emacs/Emergency-Escape.html
 msgid ""
@@ -176124,14 +176134,11 @@ msgid ""
 "function key and on the terminal type.  (Often the sequence starts with <kbd "
 "class=\"kbd\"><kbd class=\"key\">ESC</kbd> [</kbd>.)  If Emacs understands "
 "your terminal type properly, it automatically handles such sequences as "
-"single input events."
-msgstr ""
-"テキスト端末では、ファンクションキーを入力すると、実際にはコンピュータに一連"
-"の文字が送信されます。その具体的な内容は、ファンクションキーや端末の種類に"
-"よって異なります。（多くの場合、そのシーケンスは <kbd class=\"kbd\"><kbd "
-"class=\"key\">ESC</kbd> [</kbd> から始まります。）Emacsが端末の種類を正しく認"
-"識していれば、こうしたシーケンスを単一の入力イベントとして自動的に処理しま"
-"す。"
+"single input events.  Whenever it can, Emacs prefers to use the Kitty "
+"Keyboard Protocol which unambiguously defines sequences for a very broad "
+"range of function keys (see <a class=\"pxref\" href=\"Terminal-"
+"Init.html\">Terminal-specific Initialization</a>)."
+msgstr "テキスト端末では、ファンクションキーを入力すると、実際にはコンピュータに一連の文字が送信されます。その正確な内容は、ファンクションキーや端末の種類によって異なります。（多くの場合、そのシーケンスは <kbd class=\"kbd\"><kbd class=\"key\">ESC</kbd> [</kbd> から始まります。）Emacs が端末の種類を正しく認識していれば、こうしたシーケンスを単一の入力イベントとして自動的に処理します。可能な限り、Emacs は非常に幅広いファンクションキーのシーケンスを一意に定義する Kitty Keyboard Protocol を使用することを優先します（<a class=\"pxref\" href=\"Terminal-Init.html\">端末固有の初期化</a> を参照）。"
 
 # Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><div><hr><p>
@@ -203253,21 +203260,17 @@ msgstr ""
 #. type: Content of: <html><body><div><hr><p>
 #: build/html/emacs/Modifier-Keys.html
 msgid ""
-"A <kbd class=\"key\">Control</kbd>-modified alphabetical character is "
-"generally considered case-insensitive: Emacs always treats <kbd "
-"class=\"kbd\">C-A</kbd> as <kbd class=\"kbd\">C-a</kbd>, <kbd "
-"class=\"kbd\">C-B</kbd> as <kbd class=\"kbd\">C-b</kbd>, and so forth.  The "
-"reason for this is historical: In non-graphical environments there is no "
-"distinction between those keystrokes.  However, you can bind shifted <kbd "
-"class=\"key\">Control</kbd> alphabetical keystrokes in GUI frames:"
-msgstr ""
-"<kbd class=\"key\">Control</kbd>で修飾されたアルファベット文字は、一般的に大"
-"文字小文字を区別しないものとみなされます。Emacsは常に<kbd class=\"kbd\">C-A</"
-"kbd>を<kbd class=\"kbd\">C-a</kbd>として、<kbd class=\"kbd\">C-B</kbd>を<kbd "
-"class=\"kbd\">C-b</kbd>として扱う、といった具合です。その理由は歴史的なもの"
-"で、非グラフィカルな環境ではこれらのキーストロークに区別がないためです。ただ"
-"し、GUIフレームでは、シフト付きの<kbd class=\"key\">Control</kbd>アルファベッ"
-"トキーストロークをバインドすることが可能です："
+"In the case of <kbd class=\"key\">Control</kbd>-modified alphabetical "
+"character, one reason for doing things this way is historical: in "
+"traditional non-graphical environments there is no distinction between <kbd "
+"class=\"kbd\">C-A</kbd> and <kbd class=\"kbd\">C-a</kbd>, <kbd "
+"class=\"kbd\">C-B</kbd> and <kbd class=\"kbd\">C-b</kbd>, and so forth.  "
+"Only non-graphical environments using the Kitty Keyboard Protocol (see <a "
+"class=\"pxref\" href=\"Terminal-Init.html\">Terminal-specific "
+"Initialization</a>)  can make these distinctions.  You can bind shifted <kbd "
+"class=\"key\">Control</kbd> alphabetical keystrokes in GUI frames and text-"
+"mode frames that use the Kitty Keyboard Protocol like this:"
+msgstr "<kbd class=\"key\">Control</kbd>で修飾されたアルファベット文字の場合、このように処理する理由の一つに歴史的な経緯があります。従来の非グラフィカル環境では、<kbd class=\"kbd\">C-A</kbd>と<kbd class=\"kbd\">C-a</kbd>、<kbd class=\"kbd\">C-B</kbd>と<kbd class=\"kbd\">C-b</kbd>といった区別がなされていません。こうした区別が可能なのは、Kitty Keyboard Protocol（<a class=\"pxref\" href=\"Terminal-Init.html\">ターミナル固有の初期化</a>を参照）を使用する非グラフィカル環境のみです。Kitty Keyboard Protocolを使用するGUIフレームやテキストモードフレームにおいて、Shiftキーを押した<kbd class=\"key\">Control</kbd>のアルファベットキーストロークを次のようにバインドできます。"
 
 #. type: Content of: <html><body><div><hr><div><pre>
 #: build/html/emacs/Modifier-Keys.html
@@ -203280,14 +203283,11 @@ msgstr ""
 #: build/html/emacs/Modifier-Keys.html
 msgid ""
 "For all other modifiers, you can make the modified alphabetical characters "
-"case-sensitive (even on non-graphical frames) when you customize Emacs.  For "
-"instance, you could make <kbd class=\"kbd\">M-a</kbd> and <kbd "
-"class=\"kbd\">M-A</kbd> run different commands."
-msgstr ""
-"その他のすべての修飾子については、Emacsをカスタマイズすることで、変更後のアル"
-"ファベット文字を大文字小文字区別可能にできます（グラフィカルでないフレームで"
-"も同様です）。例えば、<kbd class=\"kbd\">M-a</kbd> と <kbd class=\"kbd\">M-"
-"A</kbd> で異なるコマンドを実行させるといったことが可能です。"
+"case-sensitive (even on non-graphical frames not using the Kitty Keyboard "
+"Protocol) when you customize Emacs.  For instance, you could make <kbd "
+"class=\"kbd\">M-a</kbd> and <kbd class=\"kbd\">M-A</kbd> run different "
+"commands."
+msgstr "その他のすべての修飾子については、Emacsをカスタマイズすることで、変更されたアルファベット文字を大文字・小文字区別可能にできます（Kitty Keyboard Protocolを使用していない非グラフィカルなフレームであっても可能です）。例えば、<kbd class=\"kbd\">M-a</kbd> と <kbd class=\"kbd\">M-A</kbd> で異なるコマンドを実行させるといった設定が可能です。"
 
 # Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><div><hr>
@@ -233696,12 +233696,11 @@ msgid ""
 "On a text terminal, if you quit with <kbd class=\"kbd\">C-g</kbd> a second "
 "time before the first <kbd class=\"kbd\">C-g</kbd> is recognized, you "
 "activate the emergency-escape feature and return to the shell.  See <a "
-"class=\"xref\" href=\"Emergency-Escape.html\">Emergency Escape</a>."
-msgstr ""
-"テキスト端末において、最初の <kbd class=\"kbd\">C-g</kbd> が認識される前に2回"
-"目に <kbd class=\"kbd\">C-g</kbd> で終了すると、緊急脱出機能が作動し、シェル"
-"に戻ります。<a class=\"xref\" href=\"Emergency-Escape.html\">緊急脱出</a> を"
-"参照してください。"
+"class=\"xref\" href=\"Emergency-Escape.html\">Emergency Escape</a>.  This "
+"feature is disabled on text terminals using the Kitty Keyboard Protocol.  "
+"See <a class=\"xref\" href=\"Terminal-Init.html\">Terminal-specific "
+"Initialization</a>."
+msgstr "テキスト端末において、最初の <kbd class=\"kbd\">C-g</kbd> が認識される前に2回目に <kbd class=\"kbd\">C-g</kbd> で終了すると、緊急エスケープ機能が作動し、シェルに戻ります。<a class=\"xref\" href=\"Emergency-Escape.html\">緊急エスケープ</a> を参照してください。この機能は、Kitty Keyboard Protocol を使用するテキスト端末では無効になっています。<a class=\"xref\" href=\"Terminal-Init.html\">端末固有の初期化</a> を参照してください。"
 
 # Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><div><hr>
@@ -280731,6 +280730,65 @@ msgstr ""
 "ク</a>を参照してください。"
 
 # Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><ul><li>
+#: build/html/emacs/Terminal-Init.html
+msgid ""
+"<a href=\"#The-Kitty-Keyboard-Protocol\" accesskey=\"1\">The Kitty Keyboard "
+"Protocol</a>"
+msgstr "<a href=\"#The-Kitty-Keyboard-Protocol\" accesskey=\"1\">The Kitty Keyboard Protocol</a>"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div><h4>
+#: build/html/emacs/Terminal-Init.html
+msgid ""
+"<span>51.4.3.1 The Kitty Keyboard Protocol<a class=\"copiable-link\" "
+"href=\"#The-Kitty-Keyboard-Protocol\"> &para;</a></span>"
+msgstr "<span>51.4.3.1 Kitty Keyboardプロトコル<a class=\"copiable-link\" href=\"#The-Kitty-Keyboard-Protocol\"> &para;</a></span>"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div>
+#: build/html/emacs/Terminal-Init.html
+msgid ""
+"<a class=\"index-entry-id\" id=\"index-"
+"tty_002duse_002dkitty_002dkbd_002dproto\"></a>"
+msgstr "<a class=\"index-entry-id\" id=\"index-tty_002duse_002dkitty_002dkbd_002dproto\"></a>"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div><p>
+#: build/html/emacs/Terminal-Init.html
+msgid ""
+"When your terminal supports the <a class=\"uref\" href=\"https://"
+"sw.kovidgoyal.net/kitty/keyboard-protocol/\">Kitty Keyboard Protocol</a>, "
+"Emacs detects this and uses the protocol to communicate with the terminal.  "
+"This enhances keyboard input by allowing Emacs to distinguish between key "
+"sequences like <kbd class=\"kbd\">RET</kbd> and <kbd class=\"kbd\">C-"
+"&lt;return&gt;</kbd>, which normally can&rsquo;t be distinguished in text-"
+"mode frames."
+msgstr "ターミナルが<a class=\"uref\" href=\"https://sw.kovidgoyal.net/kitty/keyboard-protocol/\">Kitty Keyboard Protocol</a>に対応している場合、Emacsはこれを検知し、同プロトコルを用いてターミナルと通信します。これにより、テキストモードのフレームでは通常区別できない<kbd class=\"kbd\">RET</kbd>や<kbd class=\"kbd\">C-&lt;return&gt;</kbd>といったキーシーケンスをEmacsが判別できるようになり、キーボード入力が向上します。"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div><p>
+#: build/html/emacs/Terminal-Init.html
+msgid ""
+"If the Kitty Keyboard Protocol causes problems because your terminal "
+"emulator&rsquo;s support for it is buggy, customize the variable <code "
+"class=\"code\">tty-use-kitty-kbd-proto</code> to <code class=\"code\">nil</"
+"code>.  Setting this variable affects newly initialized terminals but not "
+"existing terminals, so after customizing it you will usually need to restart "
+"Emacs."
+msgstr "ターミナルエミュレータの対応にバグがあり、Kitty Keyboard Protocol で問題が発生する場合は、変数 <code class=\"code\">tty-use-kitty-kbd-proto</code> を <code class=\"code\">nil</code> にカスタマイズしてください。この変数の設定は新たに初期化されたターミナルには影響しますが、既存のターミナルには影響しないため、カスタマイズ後は通常 Emacs を再起動する必要があります。"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div><p>
+#: build/html/emacs/Terminal-Init.html
+msgid ""
+"If your terminal emulator supports the Kitty Keyboard Protocol but Emacs "
+"fails to detect and use it, you can force it on by customizing the variable "
+"<code class=\"code\">xterm-extra-capabilities</code> to include the symbol "
+"<code class=\"code\">kittyKeyboardProtocol</code>."
+msgstr "ターミナルエミュレータがKitty Keyboard Protocolをサポートしているにもかかわらず、Emacsがそれを検出して利用できない場合は、変数 <code class=\"code\">xterm-extra-capabilities</code> をカスタマイズしてシンボル <code class=\"code\">kittyKeyboardProtocol</code> を含めることで、強制的に有効にできます。"
+
+# Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><hr><p>
 #: build/html/emacs/Terminal-Init.html
 msgid ""
@@ -310024,6 +310082,15 @@ msgstr ""
 #. type: Content of: <html><body><div><hr><div><table><tr><td>
 #: build/html/emacs/Variable-Index.html
 msgid ""
+"<a href=\"Terminal-Init.html#index-"
+"tty_002duse_002dkitty_002dkbd_002dproto\"><code>tty-use-kitty-kbd-proto</"
+"code></a>"
+msgstr "<a href=\"Terminal-Init.html#index-tty_002duse_002dkitty_002dkbd_002dproto\"><code>tty-use-kitty-kbd-proto</code></a>"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div><table><tr><td>
+#: build/html/emacs/Variable-Index.html
+msgid ""
 "<a href=\"General-Variables.html#index-TZ_002c-environment-"
 "variable\"><code>TZ<span class=\"r\">, environment variable</span></code></a>"
 msgstr ""
@@ -330692,6 +330759,14 @@ msgid ""
 msgstr ""
 "<a id=\"toc-Terminal_002dspecific-Initialization\" href=\"Terminal-"
 "Init.html\">51.4.3 端末固有の初期化</a>"
+
+# Machine-translated by PLaMo Translate.
+#. type: Content of: <html><body><div><hr><div><div><ul><li><ul><li><ul><li><ul><li>
+#: build/html/emacs/index.html
+msgid ""
+"<a id=\"toc-The-Kitty-Keyboard-Protocol\" href=\"Terminal-Init.html#The-"
+"Kitty-Keyboard-Protocol\">51.4.3.1 The Kitty Keyboard Protocol</a>"
+msgstr "<a id=\"toc-The-Kitty-Keyboard-Protocol\" href=\"Terminal-Init.html#The-Kitty-Keyboard-Protocol\">51.4.3.1 Kittyキーボードプロトコル</a>"
 
 # Machine-translated by PLaMo Translate.
 #. type: Content of: <html><body><div><hr><div><div><ul><li><ul><li><ul><li>
