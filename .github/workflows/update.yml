@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 330
     steps:
-      - uses: actions/checkout@v7
-      - uses: cachix/install-nix-action@v31
+      - uses: actions/checkout@v7.0.1
+      - uses: cachix/install-nix-action@v31.11.3
       - name: Extract the msgids of the latest Emacs manuals
         run: nix develop --command make fetch-latest pot
       - name: Translate new and changed msgids
