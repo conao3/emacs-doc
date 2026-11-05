@@ -24,4 +24,4 @@ $ nix develop --command make fetch site
 $ nix build
 ```
 
-`make fetch site` needs no credentials. Open `dist/index.html` or run `wrangler dev` to look at the result. `make translate` needs `PLAMO_AUTH_FILE`; use `LIMIT=<n>` for a short run.
+`make fetch site` and `make fetch-site` need no credentials. Open `dist/index.html` or run `wrangler dev` to look at the result. `make translate` needs `PLAMO_AUTH_FILE`; use `LIMIT=<n>` for a short run.
