@@ -23,16 +23,14 @@ The manuals follow the master branch of [Emacs](https://github.com/emacs-mirror/
 3. `make pot` extracts the text of every page with po4a (`xhtml`) into one catalog per manual and merges it into `po/<manual>.ja.po` with `msgmerge --previous`. Both versions of a manual share the catalog; a paragraph whose links differ between them (`Node.html` and `#Node`) is a separate entry. A paragraph whose English changed becomes fuzzy; a new paragraph is untranslated.
 4. `make translate` fills the untranslated and fuzzy machine-translated entries with [po-plamo](https://github.com/conao3/rust-po-plamo). Code (`code`, `kbd`, `pre`, `samp`, `var`) is kept in English, and entries extracted from `pre`, `style`, and `script` are not translated. `LIMIT=<n>` stops after n msgids.
 5. `make site` writes the translated pages to `dist/` with `po4a --keep 0`, so a paragraph without a translation stays in English. Each page gets a notice that links to the original page on gnu.org (`html_node` or `html_mono`).
-6. `make deploy` uploads `dist/` to the Cloudflare Worker `emacs-doc` (static assets) with wrangler.
+6. `make package` packs `dist/` into `build/dist.tar.zst` (the same files give the same archive) and writes its SHA-256 to `SITE_SHA256`.
+7. `make fetch-site` downloads `dist.tar.zst` from the release `site`, checks it against `SITE_SHA256`, and unpacks it into `dist/`. `make deploy` uploads `dist/` to the Cloudflare Worker `emacs-doc` (static assets) with wrangler.
 
 `make stats` prints the translated and untranslated counts of each catalog.
 
-The `Update` workflow is run by hand (`gh workflow run update.yml`). It runs every step except `make translate`, commits the updated `po/*.ja.po`, and deploys the site, so a new or changed paragraph stays in English until `make translate` is run locally and the catalogs are pushed. It needs these repository secrets:
+The `Update` workflow is run by hand (`gh workflow run update.yml`). It runs `make fetch-latest pot site stats package`, uploads `build/dist.tar.zst` to the release `site`, and commits `EMACS_REVISION`, `SITE_SHA256`, and the updated `po/*.ja.po`. A new or changed paragraph stays in English until `make translate` is run locally, the catalogs are pushed, and `Update` is run again.
 
-| Secret | Value |
-|---|---|
-| `CLOUDFLARE_API_TOKEN` | A Cloudflare API token with Workers Scripts edit on the account and Workers Routes edit on the zone of the custom domain. |
-| `CLOUDFLARE_ACCOUNT_ID` | The Cloudflare account ID. |
+Workers Builds deploys the Worker on every push to `master` with the build command `make fetch-site` and the deploy command `npx wrangler deploy`, so the repository holds no Cloudflare credentials. A push whose `SITE_SHA256` does not match the archive in the release fails the build and leaves the deployed site as it is.
 
 ## Correcting a translation
 

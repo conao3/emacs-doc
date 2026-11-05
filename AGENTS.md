@@ -1,10 +1,10 @@
 # AGENTS.md
 
-`emacs-doc` builds the Japanese machine translation of the GNU Emacs manuals served at https://emacs-doc.conao3.com. The pipeline and the repository secrets are described in `README.md`.
+`emacs-doc` builds the Japanese machine translation of the GNU Emacs manuals served at https://emacs-doc.conao3.com. The pipeline and the deployment are described in `README.md`.
 
 ## Layout
 
-- `Makefile`: the pipeline (`fetch`, `fetch-latest`, `html`, `pot`, `translate`, `site`, `stats`, `deploy`, `check`).
+- `Makefile`: the pipeline (`fetch`, `fetch-latest`, `html`, `pot`, `translate`, `site`, `stats`, `package`, `fetch-site`, `deploy`, `check`).
 - `scripts/`: `fetch-emacs.sh` (sparse checkout of `doc/` and `configure.ac`), `build-html.sh` (makeinfo), `po4a-config.sh` (one po4a configuration per manual), `finish-site.sh` (language attribute, notice, images, top page).
 - `site/index.html`: the top page. `@VERSION@`, `@REVISION@`, and `@SHORT_REVISION@` are replaced by `finish-site.sh`.
 - `po/<manual>.ja.po`: the translations, committed. `po/*.pot` and `build/` are regenerated and ignored.
