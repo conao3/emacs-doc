@@ -14,26 +14,15 @@ concurrency:
 
 jobs:
   update:
-    name: Update the translations and deploy
+    name: Update the source and deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: cachix/install-nix-action@v31.11.3
       - name: Extract the msgids of the latest Emacs manuals
         run: nix develop --command make fetch-latest pot
-      - name: Translate new and changed msgids
-        env:
-          PLAMO_AUTH: ${{ secrets.PLAMO_AUTH }}
-        run: |
-          umask 077
-          printf '%s' "$PLAMO_AUTH" > "$RUNNER_TEMP/plamo-auth.json"
-          export PLAMO_AUTH_FILE="$RUNNER_TEMP/plamo-auth.json"
-          status=0
-          timeout 4h nix develop --command make translate || status=$?
-          rm -f "$PLAMO_AUTH_FILE"
-          if [ "$status" -ne 0 ] && [ "$status" -ne 124 ]; then exit "$status"; fi
-      - name: Commit the translations
+      - name: Commit the catalogs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -42,7 +31,7 @@ jobs:
           fi
           git add EMACS_REVISION po/*.ja.po
           if ! git diff --cached --quiet; then
-            git commit -m "Update translations for Emacs $(cut -c1-10 EMACS_REVISION)"
+            git commit -m "Update the catalogs for Emacs $(cut -c1-10 EMACS_REVISION)"
             git push
           fi
       - name: Build the site

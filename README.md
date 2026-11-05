@@ -27,11 +27,10 @@ The manuals follow the master branch of [Emacs](https://github.com/emacs-mirror/
 
 `make stats` prints the translated and untranslated counts of each catalog.
 
-The `Update` workflow runs these steps every day at 03:00 JST, commits the updated `po/*.ja.po`, and deploys the site. It needs these repository secrets:
+The `Update` workflow runs every day at 03:00 JST. It runs every step except `make translate`, commits the updated `po/*.ja.po`, and deploys the site, so a new or changed paragraph stays in English until `make translate` is run locally and the catalogs are pushed. It needs these repository secrets:
 
 | Secret | Value |
 |---|---|
-| `PLAMO_AUTH` | The PLaMo Translate login JSON (`{"apiKey": ..., "refreshToken": ...}`, see the [plamo-tr README](https://github.com/conao3/rust-plamo-tr#login)). |
 | `CLOUDFLARE_API_TOKEN` | A Cloudflare API token with Workers Scripts edit on the account and Workers Routes edit on the zone of the custom domain. |
 | `CLOUDFLARE_ACCOUNT_ID` | The Cloudflare account ID. |
 
