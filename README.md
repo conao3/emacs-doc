@@ -27,7 +27,7 @@ The manuals follow the master branch of [Emacs](https://github.com/emacs-mirror/
 
 `make stats` prints the translated and untranslated counts of each catalog.
 
-The `Update` workflow runs every day at 03:00 JST. It runs every step except `make translate`, commits the updated `po/*.ja.po`, and deploys the site, so a new or changed paragraph stays in English until `make translate` is run locally and the catalogs are pushed. It needs these repository secrets:
+The `Update` workflow is run by hand (`gh workflow run update.yml`). It runs every step except `make translate`, commits the updated `po/*.ja.po`, and deploys the site, so a new or changed paragraph stays in English until `make translate` is run locally and the catalogs are pushed. It needs these repository secrets:
 
 | Secret | Value |
 |---|---|
