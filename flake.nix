@@ -5,8 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    po-plamo.url = "github:conao3/rust-po-plamo";
-    po-plamo.inputs.nixpkgs.follows = "nixpkgs";
+    plamo-tr-po.url = "github:conao3/rust-plamo-tr-po";
+    plamo-tr-po.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -31,7 +31,7 @@
             po4a
             texinfo
             wrangler
-            inputs'.po-plamo.packages.default
+            inputs'.plamo-tr-po.packages.default
           ];
         in
         {

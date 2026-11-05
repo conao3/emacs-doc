@@ -114,7 +114,7 @@
         "type": "github"
       }
     },
-    "po-plamo": {
+    "plamo-tr-po": {
       "inputs": {
         "flake-parts": "flake-parts_2",
         "nixpkgs": [
@@ -123,16 +123,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1793663136,
-        "narHash": "sha256-vLWVuV1jXVmMsyvPH0phK3X6dAC4kS5BzjG6N5rEAOY=",
+        "lastModified": 1793851066,
+        "narHash": "sha256-qBEz6/vBhg9XOlQ5vhLlRxXAE+VwBWsrvnQFJ/4CAwM=",
         "owner": "conao3",
-        "repo": "rust-po-plamo",
-        "rev": "915bffe77b3ff24ce7efaee37c553c60485c1ba8",
+        "repo": "rust-plamo-tr-po",
+        "rev": "99a858d6ea065033ee83558d7d5e7c6fda4658d0",
         "type": "github"
       },
       "original": {
         "owner": "conao3",
-        "repo": "rust-po-plamo",
+        "repo": "rust-plamo-tr-po",
         "type": "github"
       }
     },
@@ -140,7 +140,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
-        "po-plamo": "po-plamo",
+        "plamo-tr-po": "plamo-tr-po",
         "treefmt-nix": "treefmt-nix_2"
       }
     },

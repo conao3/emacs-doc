@@ -21,7 +21,7 @@ The manuals follow the master branch of [Emacs](https://github.com/emacs-mirror/
 1. `make fetch-latest` checks out the `doc` directory of the Emacs master branch and writes its commit to `EMACS_REVISION`. `make fetch` checks out the commit already in `EMACS_REVISION`.
 2. `make html` builds each manual with `makeinfo --html` twice: one page per node in `<manual>/`, and the whole manual in one page in `mono/<manual>.html`.
 3. `make pot` extracts the text of every page with po4a (`xhtml`) into one catalog per manual and merges it into `po/<manual>.ja.po` with `msgmerge --previous`. Both versions of a manual share the catalog; a paragraph whose links differ between them (`Node.html` and `#Node`) is a separate entry. A paragraph whose English changed becomes fuzzy; a new paragraph is untranslated.
-4. `make translate` fills the untranslated and fuzzy machine-translated entries with [po-plamo](https://github.com/conao3/rust-po-plamo). Code (`code`, `kbd`, `pre`, `samp`, `var`) is kept in English, and entries extracted from `pre`, `style`, and `script` are not translated. `LIMIT=<n>` stops after n msgids.
+4. `make translate` fills the untranslated and fuzzy machine-translated entries with [plamo-tr-po](https://github.com/conao3/rust-plamo-tr-po). Code (`code`, `kbd`, `pre`, `samp`, `var`) is kept in English, and entries extracted from `pre`, `style`, and `script` are not translated. `LIMIT=<n>` stops after n msgids.
 5. `make site` writes the translated pages to `dist/` with `po4a --keep 0`, so a paragraph without a translation stays in English. Each page gets a notice that links to the original page on gnu.org (`html_node` or `html_mono`).
 6. `make package` packs `dist/` into `build/dist.tar.zst` (the same files give the same archive) and writes its SHA-256 to `SITE_SHA256`.
 7. `make fetch-site` downloads `dist.tar.zst` from the release `site`, checks it against `SITE_SHA256`, and unpacks it into `dist/`. `make deploy` uploads `dist/` to the Cloudflare Worker `emacs-doc` (static assets) with wrangler.
@@ -34,7 +34,7 @@ Workers Builds deploys the Worker on every push to `master` with the build comma
 
 ## Correcting a translation
 
-Edit the `msgstr` in `po/<manual>.ja.po` and delete the line `# Machine-translated by PLaMo Translate.` of that entry. po-plamo does not overwrite entries without that line, and a fuzzy entry without it is left for a person to review.
+Edit the `msgstr` in `po/<manual>.ja.po` and delete the line `# Machine-translated by PLaMo Translate.` of that entry. plamo-tr-po does not overwrite entries without that line, and a fuzzy entry without it is left for a person to review.
 
 ## Development
 
