@@ -38,11 +38,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793977579,
-        "narHash": "sha256-WrSODdZFVIs/Hh2NzC0bY+ROByi0bATg8WfePX8dPj8=",
+        "lastModified": 1794554816,
+        "narHash": "sha256-PqJ89Z/qwQa2fB2C0j/GjiviARAtBzVPDUxnbIY6EPA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4fe25e12eb9f4c744966dd3de5a05246cf098601",
+        "rev": "e126e9e73c335158ff8279ac14d5f4afec153716",
         "type": "github"
       },
       "original": {
@@ -123,11 +123,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794209156,
-        "narHash": "sha256-Wze0/ebvUJnqMMhV6ajV2z7Y+E6aWz+j3c9d0VEVFKk=",
+        "lastModified": 1794749772,
+        "narHash": "sha256-Fh3jqKgZGZdBzkglKe3bh2+Up13GHHn+bngQNah4H5E=",
         "owner": "conao3",
         "repo": "rust-plamo-tr-po",
-        "rev": "9fbb6fc607d218e2ac03871e043404a66ccad87e",
+        "rev": "d3ef279dee623d3f26d07a7bd622cc870fd9c7f8",
         "type": "github"
       },
       "original": {
