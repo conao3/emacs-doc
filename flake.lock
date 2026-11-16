@@ -123,11 +123,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794749772,
-        "narHash": "sha256-Fh3jqKgZGZdBzkglKe3bh2+Up13GHHn+bngQNah4H5E=",
+        "lastModified": 1794765865,
+        "narHash": "sha256-YXO+LHyy2e6U262ldZZPxu5YHQ0YYPwF5rnhVx45MaE=",
         "owner": "conao3",
         "repo": "rust-plamo-tr-po",
-        "rev": "d3ef279dee623d3f26d07a7bd622cc870fd9c7f8",
+        "rev": "7ffcf605b6cbe43a8c61f492009a7e779fd8d336",
         "type": "github"
       },
       "original": {
