@@ -14,6 +14,6 @@ cat <<EOF
 [options] opt:"-M utf-8 -L utf-8 -o attributes=title"
 EOF
 for file in "$html/$manual"/*.html; do
-  echo "[type: xhtml] $file \$lang:$dist/$manual/$(basename "$file")"
+	echo "[type: xhtml] $file \$lang:$dist/$manual/$(basename "$file")"
 done
 echo "[type: xhtml] $html/mono/$manual.html \$lang:$dist/mono/$manual.html"
