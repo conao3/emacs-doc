@@ -13,11 +13,11 @@
 </p>
 
 <p align="center">
-  <a href="https://emacs-doc.conao3.com">Site</a> ·
-  <a href="#manuals">Manuals</a> ·
-  <a href="#how-it-works">How it works</a> ·
-  <a href="#correcting-a-translation">Correcting a translation</a> ·
-  <a href="#development">Development</a> ·
+  <a href="https://emacs-doc.conao3.com">Site</a> |
+  <a href="#manuals">Manuals</a> |
+  <a href="#how-it-works">How it works</a> |
+  <a href="#correcting-a-translation">Correcting a translation</a> |
+  <a href="#development">Development</a> |
   <a href="#license">License</a>
 </p>
 
