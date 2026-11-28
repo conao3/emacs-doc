@@ -27,7 +27,15 @@ emacs-doc machine-translates the GNU Emacs manuals into Japanese with [PLaMo Tra
 
 This is a personal project and is not affiliated with the Free Software Foundation, the GNU Project, or Preferred Networks.
 
+![The top page, with links to the three translated manuals and their originals](images/top.png)
+
+The screenshots in this README show the published site archive served locally.
+
 ## Manuals
+
+![The node on undoing changes in the GNU Emacs Manual, with the machine translation notice and the Japanese text](images/emacs-node.png)
+
+![The node on creating strings in the Emacs Lisp Reference Manual, with code examples left in English](images/elisp-node.png)
 
 | Manual | Per node | One page | Source |
 |---|---|---|---|
